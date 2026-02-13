@@ -1,26 +1,219 @@
-@import "tailwindcss";
+/* ═══ CARLOS ANAYA RUIZ — BLACK & GOLD LINKTREE ═══ */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #050508;
+  --gold: #c9a84c;
+  --gold-light: #e2cc7e;
+  --gold-dim: rgba(201, 168, 76, 0.12);
+  --white: #f0ece6;
+  --white-dim: rgba(240, 236, 230, 0.45);
+  --white-ghost: rgba(240, 236, 230, 0.2);
+  --glass-bg: rgba(255, 255, 255, 0.035);
+  --glass-border: rgba(255, 255, 255, 0.07);
+  --glass-hover: rgba(255, 255, 255, 0.06);
+  --glass-border-hover: rgba(201, 168, 76, 0.25);
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Be Vietnam Pro", sans-serif;
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { font-family: var(--font-body); background: var(--bg); color: var(--white); min-height: 100dvh; overflow-x: hidden; }
+::selection { background: rgba(201, 168, 76, 0.3); }
+
+/* ═══ CANVAS ═══ */
+#particles-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+
+/* ═══ AMBIENT ═══ */
+.ambient { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.ambient__orb { position: absolute; border-radius: 50%; filter: blur(130px); }
+.ambient__orb--1 {
+  width: 450px; height: 450px;
+  background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+  top: -180px; left: 50%; transform: translateX(-50%);
+  animation: a1 22s ease-in-out infinite;
+}
+.ambient__orb--2 {
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%);
+  bottom: -120px; right: -80px;
+  animation: a2 28s ease-in-out infinite;
+}
+@keyframes a1 { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-45%) translateY(25px)} }
+@keyframes a2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-40px,-30px)} }
+
+/* ═══ GRAIN ═══ */
+.grain {
+  position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ═══ MAIN ═══ */
+.linktree {
+  position: relative; z-index: 2; display: flex; flex-direction: column;
+  align-items: center; min-height: 100dvh; padding: 3.5rem 1.25rem 2.5rem;
+  max-width: 420px; margin: 0 auto; perspective: 1200px;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ═══ PROFILE ═══ */
+.profile {
+  display: flex; flex-direction: column; align-items: center;
+  margin-bottom: 2.8rem; animation: reveal 1s var(--ease-smooth) both;
 }
+@keyframes reveal { from{opacity:0;transform:translateY(28px) scale(.96)} to{opacity:1;transform:translateY(0) scale(1)} }
+
+.avatar { position: relative; width: 130px; height: 130px; margin-bottom: 1.6rem; }
+.avatar__glow {
+  position: absolute; inset: -28px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.18) 0%, transparent 65%);
+  animation: gPulse 5s ease-in-out infinite;
+}
+@keyframes gPulse { 0%,100%{opacity:.7;transform:scale(1)} 50%{opacity:1;transform:scale(1.04)} }
+
+.avatar__ring {
+  position: absolute; inset: -3px; border-radius: 50%;
+  background: conic-gradient(from 0deg, var(--gold), #a07c2c, var(--gold-light), #a07c2c, var(--gold));
+  animation: spin 8s linear infinite; z-index: 1;
+}
+.avatar__ring::after { content:""; position:absolute; inset:2.5px; border-radius:50%; background:var(--bg); }
+@keyframes spin { to{transform:rotate(360deg)} }
+
+.avatar__img {
+  position: relative; z-index: 2; width: 100%; height: 100%;
+  border-radius: 50%; object-fit: cover; display: block;
+}
+
+.profile__name {
+  font-family: var(--font-display); font-size: 1.9rem; font-weight: 800;
+  letter-spacing: -0.01em; text-align: center; line-height: 1.1;
+}
+.profile__tagline {
+  font-size: 0.78rem; font-weight: 400; color: var(--white-dim);
+  letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.55rem;
+}
+.profile__line {
+  width: 44px; height: 1px; margin-top: 1.2rem; border: none;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0.45;
+}
+
+.badge {
+  display: inline-flex; align-items: center; gap: 7px; margin-top: 0.9rem;
+  padding: 5px 13px; border-radius: 100px;
+  background: rgba(34,197,94,0.06); border: 1px solid rgba(34,197,94,0.12);
+  animation: badgeIn .7s var(--ease-smooth) .35s both;
+}
+@keyframes badgeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+.badge__dot {
+  width: 5px; height: 5px; border-radius: 50%; background: #22c55e;
+  box-shadow: 0 0 8px rgba(34,197,94,0.5); animation: blink 2.5s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.4} }
+.badge__text { font-size: 0.65rem; font-weight: 500; color: rgba(34,197,94,0.7); letter-spacing: 0.02em; }
+
+/* ═══ LINKS ═══ */
+.links { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+
+/* ═══ 3D GLASS CARD ═══ */
+.card {
+  position: relative; display: flex; align-items: center; gap: 14px;
+  padding: 16px 20px; border-radius: 14px; text-decoration: none;
+  color: var(--white); cursor: pointer; transform-style: preserve-3d;
+  transition: all 450ms var(--ease-smooth);
+  background: var(--glass-bg); border: 1px solid var(--glass-border);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  box-shadow:
+    0 1px 3px rgba(0,0,0,0.4), 0 6px 14px rgba(0,0,0,0.2),
+    0 14px 28px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.04),
+    inset 0 -1px 0 rgba(0,0,0,0.25);
+}
+.card::before {
+  content:""; position:absolute; top:0; left:0; right:0; height:50%;
+  border-radius:14px 14px 0 0;
+  background:linear-gradient(180deg, rgba(255,255,255,0.035) 0%, transparent 100%);
+  pointer-events:none; transition:opacity 450ms var(--ease-smooth);
+}
+.card::after {
+  content:""; position:absolute; inset:-1px; border-radius:15px; opacity:0;
+  background:linear-gradient(135deg, rgba(201,168,76,0.15), transparent 55%);
+  z-index:-1; filter:blur(18px); transition:opacity 500ms var(--ease-smooth);
+}
+.card:hover {
+  transform: translateY(-3px) scale(1.015);
+  border-color: var(--glass-border-hover);
+  background: var(--glass-hover);
+  box-shadow:
+    0 2px 6px rgba(0,0,0,0.4), 0 10px 20px rgba(0,0,0,0.25),
+    0 20px 40px rgba(0,0,0,0.18), 0 0 30px rgba(201,168,76,0.04),
+    inset 0 1px 0 rgba(255,255,255,0.06), inset 0 -1px 0 rgba(0,0,0,0.25);
+}
+.card:hover::after { opacity: 1; }
+.card:active { transform: translateY(-1px) scale(0.995); transition-duration: 80ms; }
+
+/* ═══ ICON BOX ═══ */
+.card__icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 42px; height: 42px; border-radius: 11px; flex-shrink: 0;
+  transition: all 450ms var(--ease-spring);
+  background: var(--gold-dim); border: 1px solid rgba(201,168,76,0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.04);
+}
+.card:hover .card__icon { transform: scale(1.08); }
+.card__icon svg { width: 19px; height: 19px; }
+
+/* Brand icon colors */
+.card--consulta .card__icon svg { color: var(--gold); }
+.card--portfolio .card__icon svg { color: var(--gold); }
+.card--linkedin .card__icon svg { color: #0a66c2; }
+.card--instagram .card__icon svg { color: #E1306C; }
+.card--x .card__icon svg { color: #ffffff; }
+.card--tiktok .card__icon svg { color: #ffffff; }
+
+/* ═══ LABEL ═══ */
+.card__label { flex: 1; font-size: 0.92rem; font-weight: 600; letter-spacing: 0.01em; line-height: 1; }
+
+/* ═══ ARROW ═══ */
+.card__arrow {
+  display: flex; align-items: center; justify-content: center;
+  width: 26px; height: 26px; border-radius: 7px;
+  background: rgba(201,168,76,0.06); border: 1px solid rgba(201,168,76,0.08);
+  flex-shrink: 0; transition: all 450ms var(--ease-smooth);
+}
+.card__arrow svg { width: 13px; height: 13px; color: var(--gold); opacity: .5; transition: all 450ms var(--ease-smooth); }
+.card:hover .card__arrow { background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.18); transform: translateX(2px); }
+.card:hover .card__arrow svg { opacity: .9; }
+
+/* ═══ STAGGER ═══ */
+.card:nth-child(1){animation:cs .65s var(--ease-smooth) .08s both}
+.card:nth-child(2){animation:cs .65s var(--ease-smooth) .16s both}
+.card:nth-child(3){animation:cs .65s var(--ease-smooth) .24s both}
+.card:nth-child(4){animation:cs .65s var(--ease-smooth) .32s both}
+.card:nth-child(5){animation:cs .65s var(--ease-smooth) .40s both}
+.card:nth-child(6){animation:cs .65s var(--ease-smooth) .48s both}
+@keyframes cs { from{opacity:0;transform:translateY(24px) rotateX(-6deg) scale(.97)} to{opacity:1;transform:translateY(0) rotateX(0) scale(1)} }
+
+/* ═══ FOOTER ═══ */
+.footer { margin-top: 2.5rem; text-align: center; animation: fi .7s var(--ease-smooth) .7s both; }
+@keyframes fi { from{opacity:0} to{opacity:1} }
+.footer__text { font-size: 0.6rem; color: var(--white-ghost); letter-spacing: 0.14em; text-transform: uppercase; }
+.footer__text em { font-style: normal; color: var(--gold); opacity: .6; }
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 480px) {
+  .linktree { padding: 2.5rem 1rem 2rem; }
+  .avatar { width: 115px; height: 115px; }
+  .profile__name { font-size: 1.65rem; }
+  .card { padding: 14px 16px; gap: 12px; }
+  .card__icon { width: 38px; height: 38px; }
+  .card__icon svg { width: 17px; height: 17px; }
+  .card__label { font-size: 0.88rem; }
+}
+@media (min-width: 768px) {
+  .avatar { width: 145px; height: 145px; }
+  .profile__name { font-size: 2.1rem; }
+}
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.12); border-radius: 100px; }

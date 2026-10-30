@@ -9,9 +9,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Carlos Anaya Ruiz | Desarrollador Web & Consultor Digital",
+  title: "Carlos Anaya Ruiz | Automatización, software y sitios web",
   description:
-    "Soy Carlos Anaya Ruiz — Desarrollador web profesional. Diseño y desarrollo sitios web de alto impacto. Solicita tu consulta gratuita y lleva tu presencia digital al siguiente nivel.",
+    "Soy Carlos Anaya Ruiz — Automatización, software a la medida y sitios web para negocios en todo México. Solicita tu consulta gratuita y lleva tu presencia digital al siguiente nivel.",
   keywords: [
     "Carlos Anaya Ruiz", "desarrollador web", "diseño web profesional",
     "consultoría digital", "sitios web", "desarrollo frontend", "freelance developer",
@@ -25,14 +25,14 @@ export const metadata: Metadata = {
     type: "website", locale: "es_MX",
     url: "https://links.carlosanayaruiz.com",
     siteName: "Carlos Anaya Ruiz — Links",
-    title: "Carlos Anaya Ruiz | Desarrollador Web & Consultor Digital",
-    description: "Desarrollador web profesional. Diseño y desarrollo sitios web de alto impacto.",
+    title: "Carlos Anaya Ruiz | Automatización, software y sitios web",
+    description: "Automatización, software a la medida y sitios web para negocios en todo México.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Carlos Anaya Ruiz" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Carlos Anaya Ruiz | Desarrollador Web",
-    description: "Desarrollador web profesional. Diseño y desarrollo sitios web de alto impacto.",
+    description: "Automatización, software a la medida y sitios web para negocios en todo México.",
     creator: "@CarlosAnayaRuiz",
     images: ["/og-image.png"],
   },
@@ -59,7 +59,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               name: "Carlos Anaya Ruiz",
               url: "https://carlosanayaruiz.com",
               image: "https://links.carlosanayaruiz.com/carlos-anaya-ruiz-linktree.png",
-              jobTitle: "Desarrollador Web & Consultor Digital",
+              jobTitle: "Automatización, software y sitios web",
               sameAs: [
                 "https://www.linkedin.com/in/carlos-anaya-ruiz-732abb249",
                 "https://www.instagram.com/carlosanayadev/",

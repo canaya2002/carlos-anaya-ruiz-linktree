@@ -10,9 +10,39 @@ const Arrow = () => (
 
 const links = [
   {
-    href: "https://carlosanayaruiz.com",
-    label: "¿Necesitas un sitio web?",
-    variant: "consulta",
+    href: "https://wa.me/525569201203?text=Hola%20Carlos%2C%20vengo%20de%20Instagram",
+    label: "Escríbeme por WhatsApp",
+    variant: "whatsapp",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+      </svg>
+    ),
+  },
+  {
+    href: "https://www.carlosanayaruiz.com/es/automatizacion-ia?utm_source=instagram&utm_medium=social&utm_campaign=linkpage&utm_content=automatizacion",
+    label: "Automatiza tu negocio",
+    variant: "automatizacion",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      </svg>
+    ),
+  },
+  {
+    href: "https://www.carlosanayaruiz.com/es/dashboards?utm_source=instagram&utm_medium=social&utm_campaign=linkpage&utm_content=software",
+    label: "Software y dashboards a la medida",
+    variant: "software",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" />
+      </svg>
+    ),
+  },
+  {
+    href: "https://www.carlosanayaruiz.com/es/desarrollo-web?utm_source=instagram&utm_medium=social&utm_campaign=linkpage&utm_content=web",
+    label: "Tu sitio web",
+    variant: "web",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="3" width="20" height="14" rx="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" />
@@ -20,9 +50,9 @@ const links = [
     ),
   },
   {
-    href: "https://carlosanayaweb.com",
-    label: "Conoce mi trabajo",
-    variant: "portfolio",
+    href: "https://www.carlosanayaruiz.com/es/proyectos?utm_source=instagram&utm_medium=social&utm_campaign=linkpage&utm_content=casos",
+    label: "Casos y proyectos",
+    variant: "casos",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
@@ -30,7 +60,27 @@ const links = [
     ),
   },
   {
-    href: "https://www.linkedin.com/in/carlos-anaya-ruiz-732abb249",
+    href: "https://www.carlosanayaruiz.com/es/sobre-mi?utm_source=instagram&utm_medium=social&utm_campaign=linkpage&utm_content=sobremi",
+    label: "Sobre mí",
+    variant: "sobremi",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" />
+      </svg>
+    ),
+  },
+  {
+    href: "https://www.carlosanayaruiz.com/es/blog?utm_source=instagram&utm_medium=social&utm_campaign=linkpage&utm_content=blog",
+    label: "Blog",
+    variant: "blog",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 20h9" /><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z" />
+      </svg>
+    ),
+  },
+  {
+    href: "https://www.linkedin.com/in/carlos-anaya-ruiz-732abb249/",
     label: "LinkedIn",
     variant: "linkedin",
     icon: (
@@ -40,22 +90,32 @@ const links = [
     ),
   },
   {
-    href: "https://www.instagram.com/carlosanayadev/",
-    label: "Instagram",
-    variant: "instagram",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-      </svg>
-    ),
-  },
-  {
     href: "https://x.com/CarlosAnayaRuiz",
-    label: "X (Twitter)",
+    label: "X",
     variant: "x",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor">
         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+      </svg>
+    ),
+  },
+  {
+    href: "https://medium.com/@canaya917",
+    label: "Medium (en inglés)",
+    variant: "medium",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 20h9" /><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z" />
+      </svg>
+    ),
+  },
+  {
+    href: "https://github.com/carlosanayaruiz",
+    label: "GitHub",
+    variant: "github",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" />
       </svg>
     ),
   },
@@ -66,6 +126,16 @@ const links = [
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor">
         <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.52a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.17a8.16 8.16 0 0 0 4.76 1.52v-3.4a4.85 4.85 0 0 1-1-.6z" />
+      </svg>
+    ),
+  },
+  {
+    href: "https://www.carlosanayaruiz.com/es/seo-tecnico?utm_source=instagram&utm_medium=social&utm_campaign=linkpage&utm_content=seo",
+    label: "SEO técnico y Google Maps",
+    variant: "seo",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
       </svg>
     ),
   },
@@ -89,12 +159,12 @@ export default function Home() {
             <Image
               className="avatar__img"
               src="/carlos-anaya-ruiz-linktree.png"
-              alt="Carlos Anaya Ruiz — Desarrollador Web & Consultor Digital"
+              alt="Carlos Anaya Ruiz — Automatización, software y sitios web"
               width={150} height={150} priority quality={95}
             />
           </div>
           <h1 className="profile__name">Carlos Anaya Ruiz</h1>
-          <p className="profile__tagline">Desarrollador Web · Consultor Digital</p>
+          <p className="profile__tagline">Automatización, software a la medida y sitios web para negocios en todo México</p>
           <hr className="profile__line" />
           <div className="badge">
             <span className="badge__dot" aria-hidden="true" />
